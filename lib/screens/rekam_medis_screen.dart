@@ -194,7 +194,7 @@ class MySeparator extends StatelessWidget {
   final double dashWidth;
   final double dashSpace;
 
-  const MySeparator({Key? key, this.height = 1, this.color = const Color(0xFFE0E0E0), this.dashWidth = 6, this.dashSpace = 4}) : super(key: key);
+  const MySeparator({super.key, this.height = 1, this.color = const Color(0xFFE0E0E0), this.dashWidth = 6, this.dashSpace = 4});
 
   @override
   Widget build(BuildContext context) {

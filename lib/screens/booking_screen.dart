@@ -153,7 +153,7 @@ class _BookingScreenState extends State<BookingScreen> {
             const Text('Pilih Dokter'),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
-              value: _selectedDokter,
+              initialValue: _selectedDokter,
               items: _dokterList
                   .map(
                     (dokter) => DropdownMenuItem(

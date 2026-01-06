@@ -5,13 +5,15 @@ import 'rekam_medis_screen.dart';
 import 'profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  String _userName = "Hilal Muhamad";
+  final String _userName = "Hilal Muhamad";
 
   final List<Map<String, dynamic>> _menuItems = [
     {
@@ -321,7 +323,7 @@ class _HomeScreenState extends State<HomeScreen> {
               separatorBuilder: (_, __) => SizedBox(width: 12),
               itemBuilder: (context, index) {
                 final item = tips[index];
-                return Container(
+                return SizedBox(
                   width: 220,
                   child: Card(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -388,7 +390,7 @@ class _HomeScreenState extends State<HomeScreen> {
               separatorBuilder: (_, __) => SizedBox(width: 12),
               itemBuilder: (context, index) {
                 final item = _newsList[index];
-                return Container(
+                return SizedBox(
                   width: 260,
                   child: Card(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
