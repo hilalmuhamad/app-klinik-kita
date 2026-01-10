@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final String _userName = "Hilal Muhamad";
+  int _coinBalance = 120;
 
   final List<Map<String, dynamic>> _menuItems = [
     {
@@ -83,16 +84,18 @@ class _HomeScreenState extends State<HomeScreen> {
               clipBehavior: Clip.none,
               children: [
                 _buildHeader(context),
-                Positioned(
-                  left: 20,
-                  right: 20,
-                  bottom: -28,
-                  child: _buildSearchBar(),
-                ),
+                    Positioned(
+                      left: 20,
+                      right: 20,
+                      bottom: -28,
+                      child: _buildSearchBar(),
+                    ),
               ],
-            ),
-            SizedBox(height: 40),
-            _buildMenuSection(),
+                ),
+                SizedBox(height: 40),
+                _buildCoinWidget(),
+                SizedBox(height: 12),
+                _buildMenuSection(),
             _buildHealthSummary(),
             _buildProductsSection(),
             _buildTipsSection(),
@@ -227,6 +230,60 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {},
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCoinWidget() {
+    return Container(
+      margin: EdgeInsets.only(top: 0),
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        elevation: 2,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Saldo koin: $_coinBalance')),
+            );
+          },
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            child: Row(
+              children: [
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFC107),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(Icons.monetization_on, color: Colors.white),
+                ),
+                SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Koin Anda', style: TextStyle(fontWeight: FontWeight.w600)),
+                      SizedBox(height: 4),
+                      Text('$_coinBalance koin', style: TextStyle(color: Colors.grey[600])),
+                    ],
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Fitur top-up belum tersedia')),
+                    );
+                  },
+                  child: Text('Isi', style: TextStyle(color: Color(0xFF9C88FF))),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
