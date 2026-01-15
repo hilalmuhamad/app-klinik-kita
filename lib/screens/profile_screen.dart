@@ -97,7 +97,9 @@ class ProfileScreen extends StatelessWidget {
                                 icon: Icons.favorite_outline,
                                 title: 'Kesehatan Saya',
                                 subtitle: 'Monitor kondisi kesehatan',
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/kesehatan-saya');
+                                },
                               ),
                               _buildMenuItem(
                                 icon: Icons.calendar_today_outlined,

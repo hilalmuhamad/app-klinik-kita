@@ -6,6 +6,7 @@ import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/rekam_medis_screen.dart';
 import 'screens/profile_screen.dart';
+import 'screens/kesehatan_saya_screen.dart';
 
 void main() {
   runApp(MeditechApp());
@@ -32,6 +33,7 @@ class MeditechApp extends StatelessWidget {
         '/home': (context) => HomeScreen(),
         '/medical-history': (context) => const RekamMedisScreen(),
         '/profile': (context) => ProfileScreen(),
+        '/kesehatan-saya': (context) => const KesehatanSayaScreen(),
       },
     );
   }
